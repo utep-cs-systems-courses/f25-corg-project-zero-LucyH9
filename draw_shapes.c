@@ -26,3 +26,28 @@ void print_triangle(int leftCol, int size)
   }
 }
 
+void print_arrow(int leftCol, int size){
+  for(int row = 0; row <= size; row++){
+    int minCol = leftCol + size - row;
+    int maxCol = leftCol + size + row;
+    int tCol;
+    for(tCol = 0; tCol < minCol; tCol++) putchar(' ');
+    for(int tCol = minCol; tCol <= maxCol; tCol++ ) putchar('*');
+    putchar('\n');
+  }
+  
+  int shaftWidth = size; // with of the square
+  int shaftStart = leftCol + size - (shaftWidth/2); //This centers the square part of the arrow.
+    int shaftEnd = shaftStart + shaftWidth;
+
+    
+  for(int row = 0; row < size; row++){
+    for(int col = 0; col < shaftStart; col++){
+      putchar(' ');
+    }
+    for(int col = shaftStart; col < shaftEnd; col++){
+      putchar('*');
+    }
+    putchar('\n');
+  }
+}
